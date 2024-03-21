@@ -12,7 +12,7 @@ schemes:
 
 paths:
   /add:
-    get:
+    post:
       operationId: add
       summary: Add function
       produces:
@@ -23,7 +23,7 @@ paths:
       x-google-backend:
         address: https://us-central1-coe453-hw3-417917.cloudfunctions.net/add
   /mul:
-    get:
+    post:
       operationId: mul
       summary: Multiply function
       produces:
@@ -34,8 +34,8 @@ paths:
       x-google-backend:
         address: https://us-central1-coe453-hw3-417917.cloudfunctions.net/mul
   /div:
-    get:
-      operationId: mul
+    post:
+      operationId: div
       summary: Divide function
       produces:
         - application/json
@@ -45,7 +45,7 @@ paths:
       x-google-backend:
         address: https://us-central1-coe453-hw3-417917.cloudfunctions.net/div
   /sub:
-    get:
+    post:
       operationId: sub
       summary: Subtract function
       produces:
