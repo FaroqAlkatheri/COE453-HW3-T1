@@ -1,0 +1,57 @@
+swagger: "2.0"
+info:
+  title: mySampleAPI
+  description: API Walk through.
+  version: 1.0.0
+
+host: hw3-t1.apigateway.coe453-hw3-417917.cloud.goog
+basePath: /
+schemes:
+  - https
+  - http
+
+paths:
+  /add:
+    get:
+      operationId: add
+      summary: Add function
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+      x-google-backend:
+        address: https://us-central1-coe453-hw3-417917.cloudfunctions.net/add
+  /mul:
+    get:
+      operationId: mul
+      summary: Multiply function
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+      x-google-backend:
+        address: https://us-central1-coe453-hw3-417917.cloudfunctions.net/mul
+ /div:
+    get:
+      operationId: mul
+      summary: Divide function
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+      x-google-backend:
+        address: https://us-central1-coe453-hw3-417917.cloudfunctions.net/div
+ /sub:
+    get:
+      operationId: sub
+      summary: Subtract function
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+      x-google-backend:
+        address: https://us-central1-coe453-hw3-417917.cloudfunctions.net/sub
