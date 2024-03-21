@@ -33,7 +33,7 @@ paths:
           description: OK
       x-google-backend:
         address: https://us-central1-coe453-hw3-417917.cloudfunctions.net/mul
- /div:
+  /div:
     get:
       operationId: mul
       summary: Divide function
@@ -44,7 +44,7 @@ paths:
           description: OK
       x-google-backend:
         address: https://us-central1-coe453-hw3-417917.cloudfunctions.net/div
- /sub:
+  /sub:
     get:
       operationId: sub
       summary: Subtract function
