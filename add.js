@@ -1,31 +1,24 @@
 const functions = require('@google-cloud/functions-framework');
 
-functions.http('sumJson', (req, res) => {
-  // Get the JSON data from the request body
-  const data = req.body;
-
-  // Check if the request has a body and required keys
-  if (!data || !data.X || !data.Y) {
-    res.status(400).send('Missing required fields in JSON: "X" and "Y"');
+// Register an HTTP function with the Functions Framework
+functions.http('sum', (req, res) => {
+  // Ensure the request body contains X and Y
+  const body = req.body;
+  if (typeof body.X === 'undefined' || typeof body.Y === 'undefined') {
+    res.status(400).send('Bad Request: Missing X or Y in the request body');
     return;
   }
 
-  // Extract the values of X and Y
-  const x = data.X;
-  const y = data.Y;
+  // Calculate the sum of X and Y
+  const sum = body.X + body.Y;
 
-  // Calculate the sum
-  const result = x + y;
-
-  // Prepare the response object with sum
-  const response = {
-    X: x,
-    Y: y,
-    Result: result,
+  // Construct the response object
+  const responseObject = {
+    X: body.X,
+    Y: body.Y,
+    Result: sum
   };
 
-  // Send the response with the sum in JSON format
-  res.send(JSON.stringify(response));
+  // Send the response as JSON
+  res.status(200).json(responseObject);
 });
-
-exports.sumJson = functions.http('sumJson');  // Export for deployment
